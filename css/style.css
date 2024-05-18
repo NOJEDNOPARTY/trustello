@@ -1,0 +1,18 @@
+@import "./libs/normilize/normilize.css";
+@import "./fonts.css";
+@import "./variables.css";
+@import "./common/preloader.css";
+@import "./libs/animate/animate.css";
+@import "./main.css";
+
+@import "./common/typography.css";
+@import "./common/buttons.css";
+@import "./common/header.css";
+@import "./common/form.css";
+
+@import "./libs/owl/owl.carousel.min.css";
+@import "./libs/owl/owl.theme.default.min.css";
+@import "./libs/owl/owl.theme.default.min.css";
+
+@import "./sections/banner.css";
+@import "./common/footer.css";

@@ -1,0 +1,16 @@
+:root {
+    --body-bg-color: #161618;
+    --header-bg-color: #1C1C1E;
+    --footer-bg-color: #0D0D0E;
+    --white: #ffffff;
+    --gray: #A1A0A5;
+    --darkgray: #262628;
+    --lightgray: #D7D7D7;
+    --lightblack: #636268;
+    --blue: #035CEB;
+    --orange: #DC9408;
+    --button-border: 1px solid rgba(255, 255, 255, 0.08);
+    --input-border-focus: 1px solid #035CEB;
+    --hover-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    --seperator-bg: radial-gradient(rgba(161, 160, 165, .35), rgba(161, 160, 165, 0));
+}

@@ -1,0 +1,129 @@
+.form-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-field:not(:last-child) {
+    margin-right: 10px;
+}
+
+.checkbox-field {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.checkbox-field input {
+    display: none;
+}
+
+.checkbox-field-sign {
+    position: relative;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    background-color: var(--darkgray);
+    border: var(--button-border);
+    border-radius: 4px;
+    transform: translateY(-1px);
+    transition: .2s linear .1s;
+}
+
+@media (min-width: 1201px) {
+    .checkbox-field:hover .checkbox-field-sign {
+        box-shadow: var(--hover-shadow);
+    }
+}
+
+.checkbox-field-sign img {
+    position: absolute;
+    top: calc(50% - 5px);
+    left: calc(50% - 6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.checkbox-field input:checked ~ .checkbox-field-sign img {
+    opacity: 1;
+    visibility: visible;
+}
+
+.checkbox-field span:last-child,
+.form-field-title  {
+    display: inline-block;
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--gray);
+}
+
+@media (max-width: 992px) {
+    .checkbox-field span:last-child {
+        font-size: 12px;
+    }
+}
+
+.form-field-wrapper {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.form-field-title {
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.form-field {
+    position: relative;
+    display: block;
+}
+
+.form-field input {
+    display: block;
+    width: 100%;
+    padding: 0 16px;
+    font-family: 'Jakarta';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 49px;
+    color: var(--white);
+    caret-color: var(--blue);
+    background-color: var(--body-bg-color);
+    border: var(--button-border);
+    border-radius: 12px;
+    transition: .2s linear .1s;
+}
+
+.form-field input:focus {
+    border: var(--input-border-focus);
+}
+
+.form-field-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    padding: 0 16px;
+    font-family: 'Jakarta';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 51px;
+    color: var(--gray);
+    transition: .15s ease;
+}
+
+.form-field input.focused ~ .form-field-placeholder {
+    opacity: 0;
+    visibility: hidden;
+}

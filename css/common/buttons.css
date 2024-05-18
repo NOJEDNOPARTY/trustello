@@ -1,0 +1,65 @@
+.btn {
+    display: inline-block;
+    padding: 0 24px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 46px;
+    white-space: nowrap;
+    color: var(--lightgray);
+    background-color: var(--blue);
+    border: var(--button-border);
+    border-radius: 12px;
+    transition: .2s linear .1s;
+}
+
+.btn-gray {
+    background-color: var(--darkgray);
+}
+
+@media (min-width: 1201px) {
+    .btn:hover {
+        color: var(--white);
+        box-shadow: var(--hover-shadow);
+    }
+}
+
+.btn-icon {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: var(--button-border);
+    background-color: var(--darkgray);
+    transition: .2s linear .1s;
+}
+
+.btn-icon img,
+.btn-icon svg {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    z-index: 1;
+    transition: .3s ease;
+}
+
+.btn-icon svg {
+    fill: none;
+}
+
+.btn-icon svg path {
+    transition: .2s linear .1s;
+}
+
+@media (min-width: 1201px) {
+    .btn-icon:hover {
+        box-shadow: var(--hover-shadow);
+    }
+
+    .btn-icon:hover svg path {
+        stroke: var(--white);
+    }
+}
