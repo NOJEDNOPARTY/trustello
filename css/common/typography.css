@@ -1,0 +1,146 @@
+.heading {
+    margin-bottom: 32px;
+}
+
+.heading.heading-center > * {
+    text-align: center;
+}
+
+.heading h1,
+.heading h2 {
+    margin-bottom: 22px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.heading h1 {
+    font-size: 64px;
+}
+
+.heading p {
+    margin-bottom: 20px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--darkgray);
+}
+
+.heading p:last-child {
+    margin-bottom: 0;
+    color: var(--gray);
+}
+
+.color-white {
+    color: var(--white);
+}
+
+.color-blue {
+    color: var(--blue);
+}
+
+@media (max-width: 1200px) {
+    .heading h1,
+    .heading h2 {
+        font-size: 36px;
+        line-height: 54px;
+    }
+
+    .heading h1 {
+        font-size: 36px;
+        line-height: 43px;
+    }
+}
+
+.heading-row {
+    padding-bottom: 52px;
+}
+
+.heading-row-cnt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading-row-cnt h1 {
+    display: block;
+    width: 50%;
+    padding-right: 10px;
+    font-family: 'Jakarta';
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.tags p {
+    margin-bottom: 20px;
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--gray);
+}
+
+.tags-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin: 0 -4px;
+}
+
+.tags-row a {
+    display: inline-block;
+    margin: 4px;
+    padding: 0 12px;
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 36px;
+    color: var(--white);
+    border-radius: 4px;
+    background-color: var(--darkestgray);
+    transition: var(--link-transition);
+}
+
+@media (min-width: 1201px) {
+    .tags-row a:hover {
+        box-shadow: var(--hover-shadow);
+    }
+}
+
+@media (max-width: 1200px) {
+    .heading-row {
+        padding-bottom: 30px;
+    }
+
+    .heading-row-cnt h1 {
+        font-size: 36px;
+    }
+
+    .tags p {
+        margin-bottom: 10px;
+    }
+
+    .tags-row a {
+        padding: 0 8px;
+        font-size: 14px;
+        line-height: 32px;
+    }
+}
+
+@media (max-width: 992px) {
+    .heading-row-cnt {
+        display: block;
+    }
+
+    .heading-row-cnt h1 {
+        width: 100%;
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+}

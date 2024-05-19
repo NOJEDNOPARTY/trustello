@@ -27,11 +27,11 @@
     min-width: 20px;
     height: 20px;
     margin-right: 8px;
-    background-color: var(--darkgray);
+    background-color: var(--darkestgray);
     border: var(--button-border);
     border-radius: 4px;
     transform: translateY(-1px);
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 @media (min-width: 1201px) {
@@ -100,11 +100,11 @@
     background-color: var(--body-bg-color);
     border: var(--button-border);
     border-radius: 12px;
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 .form-field input:focus {
-    border: var(--input-border-focus);
+    border: var(--focused-border);
 }
 
 .form-field-placeholder {

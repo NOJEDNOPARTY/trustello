@@ -9,10 +9,14 @@
 @import "./common/buttons.css";
 @import "./common/header.css";
 @import "./common/form.css";
+@import "./common/slider.css";
+@import "./common/breadcrumbs.css";
 
-@import "./libs/owl/owl.carousel.min.css";
-@import "./libs/owl/owl.theme.default.min.css";
-@import "./libs/owl/owl.theme.default.min.css";
+@import "./libs/splide/splide.min.css";
 
 @import "./sections/banner.css";
+@import "./sections/articles.css";
+@import "./common/blog-article.css";
+
+@import "./common/pagination.css";
 @import "./common/footer.css";

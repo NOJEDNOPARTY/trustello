@@ -1,0 +1,41 @@
+.breadcrumbs {
+    padding-top: 92px;
+    margin-bottom: 22px;
+}
+
+.breadcrumbs a,
+.breadcrumbs span,
+.breadcrumbs a:not(:last-child)::after,
+.breadcrumbs span:not(:last-child)::after {
+    display: inline-block;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--darkgray);
+    transition: var(--link-transition);
+}
+
+.breadcrumbs span {
+    color: var(--white);
+}
+
+@media (min-width: 1201px) {
+    .breadcrumbs a:hover {
+        color: var(--white);
+    }
+}
+
+.breadcrumbs a:not(:last-child)::after,
+.breadcrumbs span:not(:last-child)::after {
+    content: ' \\ ';
+    color: var(--blue);
+    margin: 0 1px 0 4px;
+}
+
+@media (max-width: 1200px) {
+    .breadcrumbs {
+        padding-top: 40px;
+        margin-bottom: 20px;
+    }
+}

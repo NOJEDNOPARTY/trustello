@@ -10,11 +10,11 @@
     background-color: var(--blue);
     border: var(--button-border);
     border-radius: 12px;
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 .btn-gray {
-    background-color: var(--darkgray);
+    background-color: var(--darkestgray);
 }
 
 @media (min-width: 1201px) {
@@ -33,8 +33,8 @@
     height: 42px;
     border-radius: 12px;
     border: var(--button-border);
-    background-color: var(--darkgray);
-    transition: .2s linear .1s;
+    background-color: var(--darkestgray);
+    transition: var(--link-transition);
 }
 
 .btn-icon img,
@@ -51,7 +51,7 @@
 }
 
 .btn-icon svg path {
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 @media (min-width: 1201px) {

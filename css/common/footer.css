@@ -34,7 +34,7 @@
     font-size: 12px;
     line-height: 12px;
     color: var(--white);
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 @media (min-width: 1201px) {
@@ -48,7 +48,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 12px;
-    color: var(--lightblack);
+    color: var(--darkergray);
 }
 
 .footer-text {
@@ -110,7 +110,7 @@
     transform: translateX(-50%);
     width: 1px;
     height: 100%;
-    background: var(--seperator-bg);
+    background: var(--seperator-bg-color);
 }
 
 .footer-column-nav {
@@ -133,7 +133,7 @@
     font-size: 16px;
     line-height: 16px;
     color: var(--gray);
-    transition: .2s linear .1s;
+    transition: var(--link-transition);
 }
 
 @media (min-width: 1201px) {
