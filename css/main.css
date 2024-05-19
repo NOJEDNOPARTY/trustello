@@ -1,5 +1,5 @@
 html,
-    body {
+body {
     height: 100%;
 }
 
@@ -8,6 +8,15 @@ body {
     flex-direction: column;
     padding-top: 80px;
     background-color: var(--body-bg-color);
+}
+
+body::-webkit-scrollbar {
+    width: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  outline: none;
 }
 
 main  {
