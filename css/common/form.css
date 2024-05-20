@@ -191,6 +191,10 @@
     color: var(--white);
 }
 
+.select-selected.select-arrow-active {
+    border: var(--focused-border);
+}
+
 .select-items div {
     padding: 0 16px;
     line-height: 40px;
