@@ -6,7 +6,7 @@
     font-size: 16px;
     line-height: 46px;
     white-space: nowrap;
-    color: var(--lightgray);
+    color: var(--white);
     background-color: var(--blue);
     border: var(--button-border);
     border-radius: 12px;
@@ -14,6 +14,7 @@
 }
 
 .btn-gray {
+    color: var(--lightgray);
     background-color: var(--darkestgray);
 }
 

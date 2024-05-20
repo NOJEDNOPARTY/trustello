@@ -1,13 +1,19 @@
-.heading {
+.heading:not(:last-child) {
     margin-bottom: 32px;
+}
+
+.heading.heading-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .heading.heading-center > * {
     text-align: center;
 }
 
-.heading h1,
-.heading h2 {
+.heading :is(h1, h2) {
     margin-bottom: 22px;
     font-family: 'Poppins';
     font-weight: 600;
@@ -20,26 +26,29 @@
     font-size: 64px;
 }
 
+.heading :is(h1, h2) p {
+    color: var(--blue);
+}
+
 .heading p {
     margin-bottom: 20px;
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.85;
     color: var(--darkgray);
 }
 
-.heading p:last-child {
+.heading p:last-child  {
     margin-bottom: 0;
+}
+
+.touch-row .heading p:not(:first-child) {
     color: var(--gray);
 }
 
 .color-white {
     color: var(--white);
-}
-
-.color-blue {
-    color: var(--blue);
 }
 
 @media (max-width: 1200px) {

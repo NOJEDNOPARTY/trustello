@@ -1,0 +1,116 @@
+.services .heading {
+    width: 100%;
+    max-width: 624px;
+    margin: 0 auto 44px;
+}
+
+.services .heading p:not(:first-child) {
+    color: var(--white);
+}
+
+.services-cnt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-item {
+    width: calc(50% - 10px);
+    background-image: url('../../images/service-bg.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-color: var(--article-bg-color);
+    border-radius: 44px;
+    overflow: hidden;
+}
+
+.services-item-img {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 10px 0;
+    height: 343px;
+}
+
+.services-item-img img {
+    max-width: 352px;
+    max-height: 100%;
+}
+
+.services-item-cnt {
+    position: relative;
+    padding: 25px 20px 60px;
+    background-color: var(--article-bg-color);
+}
+
+.services-item-cnt::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 237px;
+    background: rgb(29,29,32);
+    background: linear-gradient(0deg, rgba(29,29,32,1) 0%, rgba(29,29,32,0) 100%);
+}
+
+.services-item-cnt :is(h3, p) {
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+.services-item-cnt h3 {
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.85;
+    color: var(--white);
+}
+
+.services-item-cnt p {
+    width: 100%;
+    max-width: 448px;
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--gray);
+}
+
+@media (max-width: 992px) {
+    .services .heading {
+        margin: 0 auto 32px;
+    }
+
+    .services-item:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    .services-item-cnt h3 {
+        margin-bottom: 12px;
+        font-size: 26px;
+    }
+
+    .services-item-img {
+        height: 281px;
+    }
+
+    .services-item-img img {
+        max-width: 240px;
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-cnt {
+        display: block;
+    }
+
+    .services-item {
+        width: 100%;
+    }
+}

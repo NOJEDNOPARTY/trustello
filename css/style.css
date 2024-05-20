@@ -15,6 +15,8 @@
 @import "./libs/splide/splide.min.css";
 
 @import "./sections/banner.css";
+@import "./sections/services.css";
+@import "./sections/touch.css";
 @import "./sections/articles.css";
 @import "./common/blog-article.css";
 
