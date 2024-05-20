@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
 </head>
-<body>
+<body class="popup-opened">
     <div class="page-preloader active">
         <img src="./images/preloader.png" alt="preloader">
     </div>
@@ -42,9 +42,9 @@
                         <li><a href="#">Testimonials</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
-                    <button class="btn">Contact us</button>
+                    <button class="btn open-popup">Contact us</button>
                 </nav>
-                <button class="btn btn-gray">Contact us</button>
+                <button class="btn btn-gray open-popup">Contact us</button>
             </div>
         </div>
     </header>
@@ -216,7 +216,7 @@
                         <label class="form-field-wrapper">
                             <span class="form-field-title">Email</span>
                             <span class="form-field">
-                                <input type="text">
+                                <input type="email" name="email">
                                 <span class="form-field-placeholder">example@ gmail.com</span>
                             </span>
                         </label>
@@ -235,7 +235,103 @@
             </div>
         </div>
     </footer>
+    <div class="popup-wrapper">
+        <div class="popup-layout"></div>
+        <div class="popup-cnt">
+            <button class="btn-icon popup-close close-popup">
+                <img src="./images/close.svg" loading="lazy" alt="close">
+            </button>
+            <div class="popup-form-wrapper">
+                <div class="popup-heading">
+                    <h2>Tell us about your project</h2>
+                </div>
+                <div class="popup-form">
+                    <form action="#">
+                        <div class="form-row">
+                            <label class="form-field-wrapper">
+                                <span class="form-field-title">Full name</span>
+                                <span class="form-field">
+                                    <input type="text" name="Full name">
+                                    <span class="form-field-placeholder">Enter name ...</span>
+                                </span>
+                            </label>
+                            <label class="form-field-wrapper">
+                                <span class="form-field-title">Username</span>
+                                <span class="form-field">
+                                    <input type="text" name="Username">
+                                    <span class="form-field-placeholder">Enter username ...</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field-wrapper">
+                                <span class="form-field-title">Service</span>
+                                <div class="selectable-element">
+                                    <select>
+                                      <option value="">Select Service ...</option>
+                                      <option value="1">Audi</option>
+                                      <option value="2">BMW</option>
+                                      <option value="3">Citroen</option>
+                                      <option value="4">Ford</option>
+                                      <option value="5">Honda</option>
+                                      <option value="6">Jaguar</option>
+                                      <option value="7">Land Rover</option>
+                                      <option value="8">Mercedes</option>
+                                      <option value="9">Mini</option>
+                                      <option value="10">Nissan</option>
+                                      <option value="11">Toyota</option>
+                                      <option value="12">Volvo</option>
+                                    </select>
+                                    <!-- <span class="form-field-placeholder">Select Service ...</span> -->
+                                </div>
+                            </div>
 
+
+
+                            <label class="form-field-wrapper">
+                                <span class="form-field-title">Username</span>
+                                <span class="form-field">
+                                    <input type="email" name="email">
+                                    <span class="form-field-placeholder">example@ gmail.com</span>
+                                </span>
+                            </label>
+                        </div>
+                        <label class="form-field-wrapper">
+                            <span class="form-field-title">Project details</span>
+                            <span class="form-field form-field-textarea">
+                                <textarea name="Project details"></textarea>
+                                <span class="form-field-placeholder">Write your description, links to documentation, etc ...</span>
+                            </span>
+                        </label>
+                        <div class="form-bottom">
+                            <label class="checkbox-field">
+                                <input type="checkbox">
+                                <span class="checkbox-field-sign">
+                                    <img src="./images/check.svg" loading="lazy" alt="check">
+                                </span>
+                                <span>By clicking this button I agree with terms of service & privacy policy</span>
+                            </label>
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="popup-benefits">
+                <h3><span>180+</span> Ecosystem partners</h3>
+                <div class="popup-benefits-list">
+                    <div><img src="./images/bnf-1.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-2.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-3.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-4.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-5.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-6.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-7.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-8.png" loading="lazy" alt="img"></div>
+                    <div><img src="./images/bnf-9.png" loading="lazy" alt="img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/libs/jquery-3.3.1.min.js"></script>
     <script src="./js/libs/animate/wow.min.js"></script>

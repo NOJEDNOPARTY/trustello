@@ -4,6 +4,7 @@
     --footer-bg-color: #0D0D0E;
     --seperator-bg-color: radial-gradient(rgba(161, 160, 165, .35), rgba(161, 160, 165, 0));
     --article-bg-color: #1D1D20;
+    --popup-bg-color: rgba(0, 0, 0, .6);
     --white: #ffffff;
     --gray: #A1A0A5;
     --darkestgray: #262628;
@@ -13,7 +14,10 @@
     --blue: #035CEB;
     --orange: #DC9408;
     --button-border: 1px solid rgba(255, 255, 255, 0.08);
+    --popup-heading-border: 1px solid #2A292C;
     --focused-border: 1px solid #035CEB;
     --hover-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
     --link-transition: .2s linear .1s;
+    --field-transition: .3s ease;
+    --popup-transition: .3s ease;
 }
