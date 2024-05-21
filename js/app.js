@@ -16,6 +16,7 @@ const common = {
 		const openPopupTrigger = document.querySelectorAll('.open-popup');
 		const closePopupTrigger = document.querySelectorAll('.close-popup, .popup-layout');
 		const formField = document.querySelectorAll('.form-field input, .form-field textarea');
+		const socialSelect = document.querySelectorAll('.social-select-wrapper');
 
 		menuTrigger.forEach(trigger => trigger.addEventListener('click', e => {
 			e.preventDefault();
@@ -35,13 +36,34 @@ const common = {
 		formField.forEach(field => {
 			field.addEventListener('focusin', e => {
 				e.preventDefault();
-				field.classList.add('focused');
+				field.classList.add('hide-placeholder');
 			});
 
 			field.addEventListener('focusout', e => {
 				e.preventDefault();
 				if (!field.value)
-					field.classList.remove('focused');
+					field.classList.remove('hide-placeholder');
+			});
+		});
+
+		socialSelect.forEach(field => {
+			const input = field.querySelector('input');
+			input.addEventListener('focusin', e => {
+				e.preventDefault();
+				field.classList.add('focused');
+				field.classList.add('hide-placeholder');
+			});
+
+			input.addEventListener('focusout', e => {
+				e.preventDefault();
+				if (!input.value) {
+					field.classList.remove('empty');
+					field.classList.remove('hide-placeholder');
+				}
+				else
+					field.classList.add('empty');
+
+				field.classList.remove('focused');
 			});
 		});
 	},
@@ -65,8 +87,10 @@ const common = {
 		}).mount();
 	},
 	socialSelect: () => {
+		const socialSelectInput = document.querySelector('.social-select-wrapper input');
 		const socialSelect = document.querySelector('.social-select');
 		const selectedOption = socialSelect.querySelector('.social-select-selected');
+		let selectedOptionName = selectedOption.dataset.name;
 		const optionsList = socialSelect.querySelector('.social-select-items');
 
 		const hideOptions = () => {
@@ -82,8 +106,12 @@ const common = {
 		const options = optionsList.querySelectorAll('div');
 
 		options.forEach(option => option.addEventListener('click', () => {
+			options.forEach(option => option.classList.remove('selected-option'));
+			option.classList.add('selected-option');
 			selectedOption.innerHTML = '';
 			const clone = option.cloneNode(true);
+			selectedOptionName = option.dataset.name;
+			socialSelectInput.name = option.dataset.name;
 			selectedOption.appendChild(clone);
 			hideOptions();
 		}));

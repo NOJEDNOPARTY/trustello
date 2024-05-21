@@ -7,6 +7,7 @@
     --popup-bg-color: rgba(0, 0, 0, .6);
     --white: #ffffff;
     --gray: #A1A0A5;
+    --darkestblack: #2A292C;
     --darkestgray: #262628;
     --darkergray: #636268;
     --darkgray: #4F4E53;
@@ -15,9 +16,10 @@
     --orange: #DC9408;
     --button-border: 1px solid rgba(255, 255, 255, 0.08);
     --popup-heading-border: 1px solid #2A292C;
-    --focused-border: 1px solid #035CEB;
+    --focused-field-border: 1px solid #035CEB;
     --hover-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
     --link-transition: .2s linear .1s;
     --field-transition: .3s ease;
+    --arrow-transition: .15s ease;
     --popup-transition: .3s ease;
 }

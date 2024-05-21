@@ -111,10 +111,11 @@
 }
 
 .form-field :is(input, textarea):focus {
-    border: var(--focused-border);
+    border: var(--focused-field-border);
 }
 
 .form-field-placeholder {
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -136,7 +137,8 @@
     line-height: 1.3;
 }
 
-.form-field :is(input, textarea).focused ~ .form-field-placeholder {
+.form-field :is(input, textarea).hide-placeholder ~ .form-field-placeholder,
+.social-select-wrapper.hide-placeholder .form-field-placeholder  {
     opacity: 0;
     visibility: hidden;
 }
@@ -192,7 +194,7 @@
 }
 
 .select-selected.select-arrow-active {
-    border: var(--focused-border);
+    border: var(--focused-field-border);
 }
 
 .select-items div {
@@ -212,7 +214,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: var(--field-transition);
+  transition: var(--arrow-transition);
 }
 
 .select-selected.select-arrow-active:after {
@@ -242,4 +244,136 @@
 
 .select-items div:hover, .same-as-selected {
   background-color: var(--popup-bg-color);
+}
+
+.social-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Jakarta';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 49px;
+    color: var(--white);
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--body-bg-color);
+    border: var(--button-border);
+    border-radius: 12px;
+    transition: var(--field-transition);
+}
+
+.social-select-wrapper.focused {
+    border: var(--focused-field-border);
+}
+
+.social-select-wrapper .form-field-placeholder {
+    padding: 0 16px 0 84px;
+}
+
+
+.social-select-wrapper input {
+    display: block;
+    width: 100%;
+    padding: 0 16px 0 10px;
+    caret-color: var(--blue);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Jakarta';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 49px;
+    color: var(--white);
+
+    line-height: 49px;
+    transition: var(--field-transition);
+}
+
+.social-select {
+    position: relative;
+    z-index: 2;
+}
+
+.social-select-selected {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    min-width: 74px;
+    padding: 0 38px 0 16px;
+    height: 49px;
+}
+
+.social-select-selected::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 14px);
+    right: 0;
+    display: block;
+    height: 28px;
+    width: 1px;
+    background-color: var(--darkestblack);
+}
+
+.social-select-selected::after {
+  position: absolute;
+  content: "";
+  top: calc(50% - 12px);
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-image: url('../../images/down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: var(--arrow-transition);
+}
+
+.social-select-selected.social-select-arrow-active:after {
+  transform: rotate(180deg);
+}
+
+.social-select-items {
+  position: absolute;
+  background-color: var(--body-bg-color);
+  border: var(--button-border);
+  border-radius: 12px;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  z-index: 3;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+.social-select-items::-webkit-scrollbar {
+    width: 0;
+}
+
+.social-select-items div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    transition: var(--field-transition);
+}
+
+.social-select-hide {
+  display: none;
+}
+
+.social-select-items div:hover, .social-select-items div.selected-option {
+  background-color: var(--popup-bg-color);
+}
+
+@media (max-width: 340px) {
+    .form-field :is(input, textarea),
+    .form-field-placeholder,
+    .selectable-element,
+    .social-select-wrapper {
+        font-size: 14px;
+    }
 }
