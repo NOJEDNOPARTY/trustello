@@ -1,4 +1,5 @@
 body.popup-opened {
+    padding-right: 1px;
     overflow: hidden;
 }
 

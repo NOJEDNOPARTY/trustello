@@ -26,7 +26,7 @@
     font-size: 64px;
 }
 
-.heading :is(h1, h2) p {
+.heading :is(h1, h2) span {
     color: var(--blue);
 }
 
@@ -36,7 +36,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.85;
-    color: var(--darkgray);
+    color: var(--gray);
 }
 
 .heading p:last-child  {
@@ -61,6 +61,10 @@
     .heading h1 {
         font-size: 36px;
         line-height: 43px;
+    }
+
+    .heading p {
+        margin-bottom: 10px;
     }
 }
 

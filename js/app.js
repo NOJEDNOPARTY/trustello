@@ -85,6 +85,13 @@ const common = {
 				},
 		  	},
 		}).mount();
+
+		new Splide( '.reviews-slider', {
+			arrows: true,
+			pagination: true,
+			type  : 'fade',
+			autoHeight: true,
+		}).mount();
 	},
 	socialSelect: () => {
 		const socialSelectInput = document.querySelector('.social-select-wrapper input');
@@ -192,9 +199,6 @@ const common = {
 			}
 		  }
 		}
-
-		/* If the user clicks anywhere outside the select box,
-		then close all select boxes: */
 		document.addEventListener('click', closeAllSelect);
 	},
 };

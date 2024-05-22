@@ -15,10 +15,12 @@
 @import "./libs/splide/splide.min.css";
 
 @import "./sections/banner.css";
+@import "./sections/info.css";
 @import "./sections/services.css";
 @import "./sections/touch.css";
+@import "./sections/reviews.css";
 @import "./sections/articles.css";
-@import "./common/blog-article.css";
+@import "./sections/blog-article.css";
 
 @import "./common/pagination.css";
 @import "./common/footer.css";
