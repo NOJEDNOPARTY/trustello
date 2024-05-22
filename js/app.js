@@ -69,9 +69,11 @@ const common = {
 	},
 	splide: () => {
 		const articlesItemCount = document.querySelectorAll('.articles-slider .articles-item').length;
+		const reviewsItemCount = document.querySelectorAll('.reviews-slider .reviews-item').length;
 		const articlesSliderPerPageCount = 3;
 		const showArticlesSliderNavigation = articlesItemCount > articlesSliderPerPageCount ? true : false;
-		new Splide( '.articles-slider', {
+
+		articlesItemCount > 1 && new Splide( '.articles-slider', {
 			perPage : articlesSliderPerPageCount,
 			focus  : 'center',
 			arrows: showArticlesSliderNavigation,
@@ -86,7 +88,7 @@ const common = {
 		  	},
 		}).mount();
 
-		new Splide( '.reviews-slider', {
+		reviewsItemCount > 1 && new Splide( '.reviews-slider', {
 			arrows: true,
 			pagination: true,
 			type  : 'fade',
