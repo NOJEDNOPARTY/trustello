@@ -12,6 +12,7 @@
     <meta name="keywords" content="Trustello">
     <title>Trustello</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/libs/dataTable/dataTables.dataTables.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -60,6 +61,119 @@
                 <div class="heading-row-cnt">
                     <h1>Audited projects</h1>
                 </div>
+            </div>
+        </div>
+        <div class="audit">
+            <div class="wrapper">
+                <table id="example" class="display" style="width:100%; color: white;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Market Cap</th>
+                            <th>Platform</th>
+                            <th>Project type</th>
+                            <th>Last audit</th>
+                            <th>Audit</th>
+                            <th>Links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/binance.png" loading="lazy" alt="binance">
+                                    Binance
+                                </div>
+                            </td>
+                            <td>$48,776,300,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Binance Smart Chain</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Avalanche</span>
+                                    <span>Polygon</span>
+                                    <span>+7</span>
+                                </div>
+                            </td>
+                            <td>Feb 14, 2023</td>
+                            <td>
+                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td>
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/near.png" loading="lazy" alt="near">
+                                    NEAR
+                                </div>
+                            </td>
+                            <td>$3,017,330,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>METIS</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>L1 Protocol</span>
+                                </div>
+                            </td>
+                            <td>Dec 11, 2023</td>
+                            <td>
+                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/whitebit.png" loading="lazy" alt="whitebit">
+                                    WhiteBIT
+                                </div>
+                            </td>
+                            <td>$949,058,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Tron</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Centralized Exchange...</span>
+                                    <span>+7</span>
+                                </div>
+                            </td>
+                            <td>Aug 9, 2023</td>
+                            <td>
+                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Market Cap</th>
+                            <th>Platform</th>
+                            <th>Project type</th>
+                            <th>Last audit</th>
+                            <th>Audit</th>
+                            <th>Links</th>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
         <section class="touch">
@@ -278,7 +392,12 @@
 
     <script src="js/libs/jquery-3.3.1.min.js"></script>
     <script src="./js/libs/animate/wow.min.js"></script>
-    <script src="js/libs/splide/splide.min.js"></script>
+    <script src="js/libs/dataTable/dataTables.min.js"></script>
     <script src="./js/app.js"></script>
+    <script>
+        new DataTable('#example', {
+            order: [[3, 'desc']]
+        });
+    </script>
 </body>
 </html>
