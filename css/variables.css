@@ -2,7 +2,8 @@
     --body-bg-color: #161618;
     --header-bg-color: #1C1C1E;
     --footer-bg-color: #0D0D0E;
-    --seperator-bg-color: radial-gradient(rgba(161, 160, 165, .35), rgba(161, 160, 165, 0));
+    --seperator-bg-color: radial-gradient(rgba(161, 160, 165, .15), rgba(161, 160, 165, 0));
+    --seperator-blue-bg-color: radial-gradient(rgba(3, 92, 235, .15), rgba(161, 160, 165, 0));
     --article-bg-color: #1D1D20;
     --popup-bg-color: rgba(0, 0, 0, .6);
     --white: #ffffff;
