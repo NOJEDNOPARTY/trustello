@@ -135,7 +135,8 @@
     }
 }
 
-.articles-item p {
+.articles-item p,
+.articles-item p a {
     margin-bottom: 20px;
     font-family: 'Jakarta';
     font-weight: 600;
@@ -147,6 +148,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--gray);
+}
+
+.articles-item p a {
+    display: inline;
+    margin: 0;
+    text-decoration: underline;
 }
 
 @media (max-width: 1200px) {
