@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-top: 80px;
-    background-color: var(--body-bg-color);
+    background-color: var(--default-bg-color);
 }
 
 body::-webkit-scrollbar {

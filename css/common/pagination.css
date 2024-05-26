@@ -18,7 +18,7 @@
     border-radius: 4px;
     background-color: var(--darkestgray);
     color: var(--gray);
-    transition: var(--link-transition);
+    transition: var(--default-transition);
 }
 
 .pagination span.current {
@@ -46,7 +46,7 @@
 }
 
 .pagination-arrow img {
-    transition: var(--link-transition);
+    transition: var(--default-transition);
 }
 
 @media (max-width: 600px) {

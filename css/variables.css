@@ -1,11 +1,11 @@
 :root {
-    --body-bg-color: #161618;
+    --default-bg-color: #161618;
     --header-bg-color: #1C1C1E;
     --footer-bg-color: #0D0D0E;
     --seperator-bg-color: radial-gradient(rgba(161, 160, 165, .15), rgba(161, 160, 165, 0));
-    --seperator-blue-bg-color: radial-gradient(rgba(3, 92, 235, .15), rgba(161, 160, 165, 0));
-    --article-bg-color: #1D1D20;
-    --popup-bg-color: rgba(0, 0, 0, .6);
+    --gray-bg-color: #1D1D20;
+    --black-bg-color: rgba(0, 0, 0, .6);
+    --white-transparent-bg-color: rgba(255, 255, 255, .05);
     --white: #ffffff;
     --gray: #A1A0A5;
     --darkestblack: #2A292C;
@@ -15,12 +15,13 @@
     --lightgray: #D7D7D7;
     --blue: #035CEB;
     --orange: #DC9408;
-    --button-border: 1px solid rgba(255, 255, 255, 0.08);
+    --element-border: 1px solid rgba(255, 255, 255, .15);
+    --transparent-border: 1px solid transparent;
     --popup-heading-border: 1px solid #2A292C;
     --focused-field-border: 1px solid #035CEB;
-    --hover-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-    --link-transition: .2s linear .1s;
-    --field-transition: .3s ease;
-    --arrow-transition: .15s ease;
-    --popup-transition: .3s ease;
+    --focused-field-border: 1px solid #035CEB;
+    --hover-shadow: 0 0 10px rgba(255, 255, 255, .15);
+    --default-transition: .2s linear .1s;
+    --ease-transition: .3s ease;
+    --easiest-transition: .15s ease;
 }

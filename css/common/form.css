@@ -28,10 +28,10 @@
     height: 20px;
     margin-right: 8px;
     background-color: var(--darkestgray);
-    border: var(--button-border);
+    border: var(--element-border);
     border-radius: 4px;
     transform: translateY(-1px);
-    transition: var(--link-transition);
+    transition: var(--default-transition);
 }
 
 @media (min-width: 1201px) {
@@ -97,10 +97,10 @@
     line-height: 49px;
     color: var(--white);
     caret-color: var(--blue);
-    background-color: var(--body-bg-color);
-    border: var(--button-border);
+    background-color: var(--default-bg-color);
+    border: var(--element-border);
     border-radius: 12px;
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .form-field textarea {
@@ -182,11 +182,11 @@
 .select-selected {
     padding: 0 50px 0 16px;
     line-height: 49px;
-    background-color: var(--body-bg-color);
-    border: var(--button-border);
+    background-color: var(--default-bg-color);
+    border: var(--element-border);
     border-radius: 12px;
     color: var(--gray);
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .selectable-element select:has(option[value=""]:not(:checked)) ~ .select-selected {
@@ -200,7 +200,7 @@
 .select-items div {
     padding: 0 16px;
     line-height: 40px;
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .select-selected:after {
@@ -214,7 +214,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: var(--arrow-transition);
+  transition: var(--easiest-transition);
 }
 
 .select-selected.select-arrow-active:after {
@@ -223,8 +223,8 @@
 
 .select-items {
   position: absolute;
-  background-color: var(--body-bg-color);
-  border: var(--button-border);
+  background-color: var(--default-bg-color);
+  border: var(--element-border);
   border-radius: 12px;
   top: calc(100% + 2px);
   left: 0;
@@ -243,7 +243,7 @@
 }
 
 .select-items div:hover, .same-as-selected {
-  background-color: var(--popup-bg-color);
+  background-color: var(--black-bg-color);
 }
 
 .social-select-wrapper {
@@ -258,10 +258,10 @@
     color: var(--white);
     cursor: pointer;
     user-select: none;
-    background-color: var(--body-bg-color);
-    border: var(--button-border);
+    background-color: var(--default-bg-color);
+    border: var(--element-border);
     border-radius: 12px;
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .social-select-wrapper.focused {
@@ -288,7 +288,7 @@
     color: var(--white);
 
     line-height: 49px;
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .social-select {
@@ -329,7 +329,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: var(--arrow-transition);
+  transition: var(--easiest-transition);
 }
 
 .social-select-selected.social-select-arrow-active:after {
@@ -338,8 +338,8 @@
 
 .social-select-items {
   position: absolute;
-  background-color: var(--body-bg-color);
-  border: var(--button-border);
+  background-color: var(--default-bg-color);
+  border: var(--element-border);
   border-radius: 12px;
   top: calc(100% + 2px);
   left: 0;
@@ -358,7 +358,7 @@
     align-items: center;
     justify-content: center;
     padding: 8px 16px;
-    transition: var(--field-transition);
+    transition: var(--ease-transition);
 }
 
 .social-select-hide {
@@ -366,7 +366,7 @@
 }
 
 .social-select-items div:hover, .social-select-items div.selected-option {
-  background-color: var(--popup-bg-color);
+  background-color: var(--black-bg-color);
 }
 
 @media (max-width: 340px) {

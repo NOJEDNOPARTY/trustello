@@ -12,7 +12,48 @@
     <meta name="keywords" content="Trustello">
     <title>Trustello</title>
     <link rel="stylesheet" href="css/style.css">
+    <!--
+        Step for adding page to the page:
+        1. Add next styles to the page:
+            1.1 <link rel="stylesheet" href="css/libs/dataTable/dataTables.dataTables.min.css">
+            1.2 <link rel="stylesheet" href="css/libs/dataTable/responsive.dataTables.css">
+            1.3 <link rel="stylesheet" href="css/sections/audit.css">
+        2. Add next script to the page:
+            2.1 <script src="js/libs/dataTable/dataTables.min.js"></script>
+            2.2 <script src="js/libs/dataTable/dataTables.responsive.js"></script>
+            2.3 <script src="js/libs/dataTable/responsive.dataTables.js"></script>
+            2.4 <script src="js/libs/dataTable/moment.min.js"></script>
+            2.5 (
+                <script>
+                    const table = new DataTable('.audit-table', {
+                        responsive: true, // adding responsive for table
+                        lengthChange: false, // removing default select length input
+                        columnDefs: [{
+                            targets: 4, // For the 'Last audit' column with date parametr
+                            render: DataTable.render.datetime('MMM DD, YYYY') // adding render datetime
+                        }],
+                        layout: { // show how layout should be present
+                            topStart: null, // removing default page lenth input
+                            topEnd: null, // removing default search input
+                            bottomStart: 'paging',
+                            bottomEnd: 'info',
+                        },
+                    });
+
+                    const tableSearchField = document.querySelector('.audit-table-search'); // Adding custom search input
+                    tableSearchField.addEventListener('keyup', () => table.search(tableSearchField.value).draw());
+                </script>
+            )
+        3. Add table tag with next attributes:
+            3.1 class="audit-table responsive display nowrap"
+            3.2 style="width: 100%" // important for responsive view
+            3.3 data-page-length="6" // how many rows should be visible
+        4. Add thead with th tag and remove default sorting for column with this attribute data-dt-order="disable"
+        5. For column with datetime please use the next format '2011-04-25'
+    -->
     <link rel="stylesheet" href="css/libs/dataTable/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="css/libs/dataTable/responsive.dataTables.css">
+    <link rel="stylesheet" href="css/sections/audit.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -56,29 +97,32 @@
                 <span>Audited Projects</span>
             </div>
         </div>
-        <div>
-            <label for="customSearch">Search:</label>
-            <input type="text" id="customSearch">
-        </div>
         <div class="heading-row wow fadeInUp">
             <div class="wrapper">
                 <div class="heading-row-cnt">
                     <h1>Audited projects</h1>
+                    <label class="heading-row-search form-field-wrapper">
+                        <span class="form-field-title">Search</span>
+                        <span class="form-field">
+                            <input type="text" name="tableSearch" class="audit-table-search">
+                            <span class="form-field-placeholder">Find something  ...</span>
+                        </span>
+                    </label>
                 </div>
             </div>
         </div>
-        <div class="audit">
+        <div class="audit wow fadeInUp">
             <div class="wrapper">
-                <table id="example" class="display" style="width:100%; color: white;">
+                <table class="audit-table responsive display nowrap" style="width: 100%" data-page-length="6">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th data-dt-order="disable">Name</th>
                             <th>Market Cap</th>
-                            <th>Platform</th>
-                            <th>Project type</th>
-                            <th>Last audit</th>
-                            <th>Audit</th>
-                            <th>Links</th>
+                            <th data-dt-order="disable">Platform</th>
+                            <th data-dt-order="disable">Project type</th>
+                            <th class="col-center">Last audit</th>
+                            <th class="col-center" data-dt-order="disable">Audit</th>
+                            <th class="table-links" data-dt-order="disable">Links</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,14 +144,14 @@
                                 <div class="table-tags">
                                     <span>Avalanche</span>
                                     <span>Polygon</span>
-                                    <span>+7</span>
+                                    <span class="table-tags-more">+7</span>
                                 </div>
                             </td>
-                            <td>Feb 14, 2023</td>
+                            <td class="col-center">2023-02-14</td>
                             <td>
-                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
                             </td>
-                            <td>
+                            <td class="table-links">
                                 <div class="table-social">
                                     <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
                                     <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
@@ -133,11 +177,11 @@
                                     <span>L1 Protocol</span>
                                 </div>
                             </td>
-                            <td>Dec 11, 2023</td>
+                            <td class="col-center">2023-12-11</td>
                             <td>
-                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
                             </td>
-                            <td>N/A</td>
+                            <td class="table-links">N/A</td>
                         </tr>
                         <tr>
                             <td>
@@ -156,27 +200,641 @@
                             <td>
                                 <div class="table-tags">
                                     <span>Centralized Exchange...</span>
-                                    <span>+7</span>
+                                    <span class="table-tags-more">+7</span>
                                 </div>
                             </td>
-                            <td>Aug 9, 2023</td>
+                            <td class="col-center">2009-08-09</td>
                             <td>
-                                <a href="#"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
                             </td>
-                            <td>N/A</td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/huobi.png" loading="lazy" alt="huobi">
+                                    Huobi BTC
+                                </div>
+                            </td>
+                            <td>$496,171,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Huobi Token</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Tokenized BTC</span>
+                                    <span>Ethereum</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-03-18</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/inch.png" loading="lazy" alt="1INCH">
+                                    1INCH
+                                </div>
+                            </td>
+                            <td>$458,444,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Energi</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+5</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Harmony</span>
+                                    <span>Avalanche</span>
+                                    <span class="table-tags-more">+9</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2020-11-04</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/metis.png" loading="lazy" alt="Metis">
+                                    Metis
+                                </div>
+                            </td>
+                            <td>$450,306,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Metis Andromeda</span>
+                                    <span class="table-tags-more">+1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>BNB Chain</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+2</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-10-05</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/binance.png" loading="lazy" alt="binance">
+                                    Binance
+                                </div>
+                            </td>
+                            <td>$48,776,300,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Binance Smart Chain</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Avalanche</span>
+                                    <span>Polygon</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-02-14</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/near.png" loading="lazy" alt="near">
+                                    NEAR
+                                </div>
+                            </td>
+                            <td>$3,017,330,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>METIS</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>L1 Protocol</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-12-11</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/whitebit.png" loading="lazy" alt="whitebit">
+                                    WhiteBIT
+                                </div>
+                            </td>
+                            <td>$949,058,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Tron</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Centralized Exchange...</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2009-08-09</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/huobi.png" loading="lazy" alt="huobi">
+                                    Huobi BTC
+                                </div>
+                            </td>
+                            <td>$496,171,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Huobi Token</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Tokenized BTC</span>
+                                    <span>Ethereum</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-03-18</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/inch.png" loading="lazy" alt="1INCH">
+                                    1INCH
+                                </div>
+                            </td>
+                            <td>$458,444,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Energi</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+5</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Harmony</span>
+                                    <span>Avalanche</span>
+                                    <span class="table-tags-more">+9</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2020-11-04</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/metis.png" loading="lazy" alt="Metis">
+                                    Metis
+                                </div>
+                            </td>
+                            <td>$450,306,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Metis Andromeda</span>
+                                    <span class="table-tags-more">+1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>BNB Chain</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+2</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-10-05</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/binance.png" loading="lazy" alt="binance">
+                                    Binance
+                                </div>
+                            </td>
+                            <td>$48,776,300,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Binance Smart Chain</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Avalanche</span>
+                                    <span>Polygon</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-02-14</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/near.png" loading="lazy" alt="near">
+                                    NEAR
+                                </div>
+                            </td>
+                            <td>$3,017,330,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>METIS</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>L1 Protocol</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-12-11</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/whitebit.png" loading="lazy" alt="whitebit">
+                                    WhiteBIT
+                                </div>
+                            </td>
+                            <td>$949,058,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Tron</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Centralized Exchange...</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2009-08-09</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/huobi.png" loading="lazy" alt="huobi">
+                                    Huobi BTC
+                                </div>
+                            </td>
+                            <td>$496,171,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Huobi Token</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Tokenized BTC</span>
+                                    <span>Ethereum</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-03-18</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/inch.png" loading="lazy" alt="1INCH">
+                                    1INCH
+                                </div>
+                            </td>
+                            <td>$458,444,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Energi</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+5</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Harmony</span>
+                                    <span>Avalanche</span>
+                                    <span class="table-tags-more">+9</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2020-11-04</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/metis.png" loading="lazy" alt="Metis">
+                                    Metis
+                                </div>
+                            </td>
+                            <td>$450,306,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Metis Andromeda</span>
+                                    <span class="table-tags-more">+1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>BNB Chain</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+2</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-10-05</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/binance.png" loading="lazy" alt="binance">
+                                    Binance
+                                </div>
+                            </td>
+                            <td>$48,776,300,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Binance Smart Chain</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Avalanche</span>
+                                    <span>Polygon</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-02-14</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/near.png" loading="lazy" alt="near">
+                                    NEAR
+                                </div>
+                            </td>
+                            <td>$3,017,330,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>METIS</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>L1 Protocol</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2023-12-11</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/whitebit.png" loading="lazy" alt="whitebit">
+                                    WhiteBIT
+                                </div>
+                            </td>
+                            <td>$949,058,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Tron</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Centralized Exchange...</span>
+                                    <span class="table-tags-more">+7</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2009-08-09</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/huobi.png" loading="lazy" alt="huobi">
+                                    Huobi BTC
+                                </div>
+                            </td>
+                            <td>$496,171,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Huobi Token</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Tokenized BTC</span>
+                                    <span>Ethereum</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-03-18</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/inch.png" loading="lazy" alt="1INCH">
+                                    1INCH
+                                </div>
+                            </td>
+                            <td>$458,444,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Energi</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+5</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Harmony</span>
+                                    <span>Avalanche</span>
+                                    <span class="table-tags-more">+9</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2020-11-04</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <img src="./images/metis.png" loading="lazy" alt="Metis">
+                                    Metis
+                                </div>
+                            </td>
+                            <td>$450,306,000</td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>Ethereum</span>
+                                    <span>Metis Andromeda</span>
+                                    <span class="table-tags-more">+1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="table-tags">
+                                    <span>BNB Chain</span>
+                                    <span>Ethereum</span>
+                                    <span class="table-tags-more">+2</span>
+                                </div>
+                            </td>
+                            <td class="col-center">2022-10-05</td>
+                            <td>
+                                <a href="#" class="table-file"><img src="./images/file-text.svg" loading="lazy" alt="file"></a>
+                            </td>
+                            <td class="table-links">
+                                <div class="table-social">
+                                    <a href="#"><img src="./images/globe.svg" loading="lazy" alt="globe"></a>
+                                    <a href="#"><img src="./images/telegram-white.svg" loading="lazy"  alt="telegram"></a>
+                                    <a href="#"><img src="./images/twitter.svg" loading="lazy"  alt="twitter"></a>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Market Cap</th>
-                            <th>Platform</th>
-                            <th>Project type</th>
-                            <th>Last audit</th>
-                            <th>Audit</th>
-                            <th>Links</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -393,15 +1051,31 @@
         </div>
     </div>
 
-
     <script src="js/libs/jquery-3.3.1.min.js"></script>
     <script src="./js/libs/animate/wow.min.js"></script>
     <script src="js/libs/dataTable/dataTables.min.js"></script>
+    <script src="js/libs/dataTable/dataTables.responsive.js"></script>
+    <script src="js/libs/dataTable/responsive.dataTables.js"></script>
+    <script src="js/libs/dataTable/moment.min.js"></script>
     <script src="./js/app.js"></script>
     <script>
-        new DataTable('#example', {
-            order: [[3, 'desc']]
+        const table = new DataTable('.audit-table', {
+            responsive: true,
+            lengthChange: false,
+            columnDefs: [{
+                targets: 4,
+                render: DataTable.render.datetime('MMM DD, YYYY')
+            }],
+            layout: {
+                topStart: null,
+                topEnd: null,
+                bottomStart: 'paging',
+                bottomEnd: 'info',
+            },
         });
+
+        const tableSearchField = document.querySelector('.audit-table-search');
+        tableSearchField.addEventListener('keyup', () => table.search(tableSearchField.value).draw());
     </script>
 </body>
 </html>

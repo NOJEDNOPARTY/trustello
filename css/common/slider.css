@@ -14,7 +14,7 @@
     height: 7px;
     margin: 4px;
     opacity: 1;
-    transition: var(--link-transition);
+    transition: var(--default-transition);
 }
 
 .content-slider .splide__pagination .splide__pagination__page.is-active {
@@ -27,7 +27,7 @@
 
 .content-slider .splide__arrow {
     background: transparent;
-    border: var(--button-border);
+    border: var(--element-border);
     background-color: var(--darkestgray);
     width: 26px;
     min-width: 26px;

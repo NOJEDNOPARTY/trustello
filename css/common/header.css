@@ -6,7 +6,7 @@
     right: 0;
     padding: 16px 0;
     background-color: var(--header-bg-color);
-    border-bottom: var(--button-border);
+    border-bottom: var(--element-border);
 }
 
 .header .wrapper {
@@ -49,7 +49,7 @@
     font-size: 16px;
     line-height: 16px;
     color: var(--gray);
-    transition: var(--link-transition);
+    transition: var(--default-transition);
 }
 
 .header nav a.current-menu-item {
@@ -110,7 +110,7 @@
         bottom: 0;
         z-index: 2;
         height: 76px;
-        border: var(--button-border);
+        border: var(--element-border);
         background-color: var(--header-bg-color);
     }
 

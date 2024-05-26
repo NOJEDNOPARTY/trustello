@@ -68,8 +68,8 @@ const common = {
 		});
 	},
 	splide: () => {
-		const articlesItemCount = document.querySelectorAll('.articles-slider .articles-item').length;
 		const reviewsItemCount = document.querySelectorAll('.reviews-slider .reviews-item').length;
+		const articlesItemCount = document.querySelectorAll('.articles-slider .articles-item').length;
 		const articlesSliderPerPageCount = 3;
 		const showArticlesSliderNavigation = articlesItemCount > articlesSliderPerPageCount ? true : false;
 
@@ -99,7 +99,6 @@ const common = {
 		const socialSelectInput = document.querySelector('.social-select-wrapper input');
 		const socialSelect = document.querySelector('.social-select');
 		const selectedOption = socialSelect.querySelector('.social-select-selected');
-		let selectedOptionName = selectedOption.dataset.name;
 		const optionsList = socialSelect.querySelector('.social-select-items');
 
 		const hideOptions = () => {
@@ -119,7 +118,7 @@ const common = {
 			option.classList.add('selected-option');
 			selectedOption.innerHTML = '';
 			const clone = option.cloneNode(true);
-			selectedOptionName = option.dataset.name;
+			selectedOption.dataset.name = option.dataset.name;
 			socialSelectInput.name = option.dataset.name;
 			selectedOption.appendChild(clone);
 			hideOptions();
@@ -130,28 +129,21 @@ const common = {
 	},
 	select: () => {
 		var x, i, j, l, ll, selElmnt, a, b, c;
-		/* Look for any elements with the class 'custom-select': */
 		x = document.getElementsByClassName('selectable-element');
 		l = x.length;
 		for (i = 0; i < l; i++) {
 		  selElmnt = x[i].getElementsByTagName('select')[0];
 		  ll = selElmnt.length;
-		  /* For each element, create a new DIV that will act as the selected item: */
 		  a = document.createElement('DIV');
 		  a.setAttribute('class', 'select-selected');
 		  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
 		  x[i].appendChild(a);
-		  /* For each element, create a new DIV that will contain the option list: */
 		  b = document.createElement('DIV');
 		  b.setAttribute('class', 'select-items select-hide');
 		  for (j = 1; j < ll; j++) {
-			/* For each option in the original select element,
-			create a new DIV that will act as an option item: */
 			c = document.createElement('DIV');
 			c.innerHTML = selElmnt.options[j].innerHTML;
 			c.addEventListener('click', function(e) {
-				/* When an item is clicked, update the original select box,
-				and the selected item: */
 				var y, i, k, s, h, sl, yl;
 				s = this.parentNode.parentNode.getElementsByTagName('select')[0];
 				sl = s.length;

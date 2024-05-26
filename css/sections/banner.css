@@ -43,7 +43,7 @@
     justify-content: space-between;
     padding: 56px 80px;
     border-radius: 44px;
-    background-color: var(--article-bg-color);
+    background-color: var(--gray-bg-color);
 }
 
 .banner-text :is(h2, p) {

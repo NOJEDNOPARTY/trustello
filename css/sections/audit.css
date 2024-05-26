@@ -1,0 +1,431 @@
+table.dataTable.hover>tbody>tr:hover>*,
+.audit .wrapper table.dataTable.display.audit-table > tbody > tr:hover>* {
+    box-shadow: none !important;
+}
+
+.audit {
+    padding-bottom: 120px;
+}
+
+.audit .wrapper {
+    max-width: 1400px;
+}
+
+.audit-table {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--white);
+    border-collapse: separate;
+    border-spacing: 0 8px !important;
+}
+
+table.dataTable.display > :is(thead, tbody) > tr :is(th, td) {
+    outline: none !important;
+    box-shadow: none !important;
+    vertical-align: middle;
+    transition: var(--default-transition);
+}
+
+table.audit-table :is(thead, tbody) tr :is(th, td) {
+    padding: 22px 9px;
+    text-align: left !important;
+}
+
+table.audit-table thead tr :is(th, td) {
+    font-weight: 400;
+    color: var(--gray) !important;
+}
+
+table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):first-child {
+    padding-left: 80px;
+}
+
+table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):last-child {
+    padding-right: 80px;
+}
+
+.table-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.table-title img {
+    min-width: 32px;
+    width: 32px;
+    margin-right: 12px;
+}
+
+.table-tags {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.table-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    padding: 0 8px;
+    border-radius: 4px;
+    background-color: var(--white-transparent-bg-color);
+}
+
+.table-tags-more { color: var(--gray); }
+
+.table-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    transition: var(--default-transition);
+}
+
+.table-file img {width: 100%;}
+
+.table-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 84px;
+    width: 84px;
+    margin-left: auto;
+}
+
+.table-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transition: var(--default-transition);
+}
+
+.table-social a img {max-width: 100%;}
+
+table.audit-table tbody tr td.table-links { color: var(--darkergray); }
+
+table.audit-table :is(thead, tbody) tr :is(th, td).table-links {text-align: right !important;}
+
+table.dataTable>thead>tr>th, table.dataTable>thead>tr>td {
+    border-bottom: var(--element-border);
+}
+
+table.audit-table :is(td, th).col-center {text-align: center !important;}
+
+div.dt-container.dt-empty-footer tbody>tr:last-child>* {border: none;}
+
+.dt-layout-row:not(.dt-layout-table) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 80px;
+    margin-top: 40px;
+}
+
+div.dt-container .dt-paging {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+div.dt-container .dt-paging :is(.first, .last) {
+    display: none !important;
+}
+
+div.dt-container .dt-paging button.dt-paging-button:not(.next, .previous),
+div.dt-container .dt-paging span {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 0 8px;
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    border-radius: 4px;
+    background: var(--darkestgray) !important;
+    border: none !important;
+    color: var(--gray) !important;
+    transition: var(--default-transition);
+}
+
+div.dt-container .dt-paging button.dt-paging-button:not(.next, .previous).current,
+div.dt-container .dt-paging button.dt-paging-button:not(.next, .previous).current:hover {
+    background-color: var(--darkgray);
+    color: var(--white) !important;
+}
+
+div.dt-container .dt-paging button.dt-paging-button:is(.next, .previous) {
+    position: relative;
+    display: block;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    background: transparent !important;
+    border: none !important;
+    color: transparent !important;
+}
+
+div.dt-container .dt-paging button.dt-paging-button:is(.next, .previous):hover {
+    color: transparent !important;
+}
+
+div.dt-container .dt-paging button.dt-paging-button:is(.next, .previous)::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 8px);
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: var(--default-transition);
+}
+
+div.dt-container .dt-paging button.dt-paging-button.previous::before {
+    background-image: url('../../images/arrow-left.svg');
+}
+
+div.dt-container .dt-paging button.dt-paging-button.next::before {
+    background-image: url('../../images/arrow-right.svg');
+}
+
+div.dt-container .dt-info {
+    font-family: 'Jakarta';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--gray);
+}
+
+table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order {
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-left: 4px;
+}
+
+.dt-column-order::before,
+.dt-column-order::after {
+    content: '' !important;
+    width: 14px;
+    height: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    left: 0;
+    opacity: .8;
+}
+
+.dt-column-order::before {
+    background-image: url('../../images/art.svg');
+}
+
+.dt-column-order::after {
+    background-image: url('../../images/arb.svg');
+}
+
+table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order:after {
+    opacity: 1;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control {position: relative;}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
+    position: absolute;
+    top: calc(50% - 12px);
+    left: -5px;
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+    background-image: url(../../images/down.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > td.dtr-control:before {
+    transform: rotate(180deg);
+}
+
+table.dataTable > tbody > tr.child td {
+    background: var(--gray-bg-color) !important;
+    border: var(--element-border) !important;
+    border-radius: 12px !important;
+    padding: 22px 20px !important;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details {
+    width: 100%;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: var(--transparent-border);
+    padding: 12px 0;
+}
+
+table.dataTable > tbody > tr.child span.dtr-title {
+    min-width: 0;
+    margin-right: 10px;
+}
+
+table.dataTable > tbody > tr.child span.dtr-title::after { content: ':'; }
+
+.dt-layout-row.dt-layout-table {
+    margin: 0 !important;
+}
+
+@media (min-width: 1350px) {
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr td {
+        background: transparent;
+        border-top: var(--transparent-border);
+        border-bottom: var(--transparent-border);
+        transition: var(--default-transition);
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr td:first-child {
+        border-radius: 12px 0 0 12px;
+        border-left: var(--transparent-border);
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr td:last-child {
+        border-radius: 0 12px 12px 0;
+        border-right: var(--transparent-border);
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr:hover td {
+        background: var(--gray-bg-color);
+        border-top: var(--element-border);
+        border-bottom: var(--element-border);
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr:hover td:last-child {
+        border-right: var(--element-border);
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr:hover td:first-child {
+        border-left: var(--element-border);
+    }
+}
+
+@media (min-width: 1201px) {
+    .table-file:hover { opacity: .6; }
+
+    .table-social a:hover { opacity: 1; }
+
+    table.audit-table.dataTable.display tbody tr:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    div.dt-container .dt-paging button.dt-paging-button:hover {
+        color: var(--white) !important;
+    }
+
+    div.dt-container .dt-paging button.dt-paging-button:is(.next, .previous):not(.disabled):hover::before {
+        opacity: .5;
+    }
+}
+
+@media (max-width: 1400px) {
+    .audit {
+        padding-bottom: 60px;
+        margin-top: -20px;
+    }
+
+    table.audit-table.dataTable.display thead tr :is(th, td):first-child {
+        padding-left: 0;
+    }
+
+    table.audit-table.dataTable.display tbody tr :is(th, td):first-child {
+        padding-left: 20px;
+    }
+    table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):last-child {
+        padding-right: 9px;
+    }
+
+    .dt-layout-row:not(.dt-layout-table) {
+        padding: 0;
+    }
+
+    .audit .wrapper table.dataTable.display.audit-table > tbody > tr td {
+        border-bottom: var(--transparent-border);
+        transition: none;
+    }
+
+    table.audit-table :is(thead, tbody) tr :is(th, td) {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+}
+
+@media (max-width: 767px)  {
+    div.dt-container div.dt-layout-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .table-social {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    div.dt-container div.dt-layout-cell:first-child {order: 2;}
+    div.dt-container div.dt-layout-cell:last-child {
+        margin-bottom: 10px;
+        order: 1;
+    }
+
+    table.dataTable > tbody > tr.child .table-tags {flex-flow: row wrap;}
+}
+
+@media (max-width: 600px) {
+    div.dt-container .dt-paging button.dt-paging-button:not(.next, .previous),
+    div.dt-container .dt-paging span {
+        margin: 0 4px;
+        font-size: 12px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 550px) {
+    table.dataTable > tbody > tr.child ul.dtr-details > li {
+        display: block;
+    }
+
+    table.dataTable > tbody > tr.child span.dtr-title {
+        display: block;
+        margin: 0 0 10px;
+    }
+
+    .table-tags {
+        margin-left: -2px;
+    }
+
+    .table-file {
+        margin: 0;
+    }
+}
