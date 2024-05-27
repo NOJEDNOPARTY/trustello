@@ -52,7 +52,8 @@
     transition: var(--default-transition);
 }
 
-.header nav a.current-menu-item {
+
+.header nav a.active {
     color: var(--white);
 }
 

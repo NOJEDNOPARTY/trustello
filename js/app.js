@@ -66,6 +66,46 @@ const common = {
 				field.classList.remove('focused');
 			});
 		});
+
+		const anchors = document.querySelectorAll('.anchor-trigger');
+
+		anchors.forEach(anchor => anchor.addEventListener('click', e => {
+			e.preventDefault();
+			const target = document.querySelector(anchor.hash);
+
+
+			if (target) {
+				const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
+
+				document.querySelector('.header').classList.toggle('open');
+				anchors.forEach(anchor => anchor.classList.remove('active'));
+				anchor.classList.add('active');
+				window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+				history.pushState(null, null, anchor.hash);
+			}
+		}));
+
+		const isInViewport = element => {
+			const rect = element.getBoundingClientRect();
+
+			return rect.top < window.innerHeight && rect.bottom > 0;
+		};
+
+		const updateCurrentSection = () => {
+			let currentSection = null;
+
+			document.querySelectorAll('.anchor-section').forEach(section => isInViewport(section) ? currentSection = section : null);
+
+			if (currentSection) {
+			  document.querySelectorAll('.anchor-trigger').forEach(anchor => anchor.classList.remove('active'));
+
+			  const activeLink = document.querySelector(`a[href="#${currentSection.id}"]`);
+
+			  return activeLink && activeLink.classList.add('active');
+			}
+		};
+
+		window.addEventListener('scroll', updateCurrentSection);
 	},
 	splide: () => {
 		const reviewsItemCount = document.querySelectorAll('.reviews-slider .reviews-item').length;

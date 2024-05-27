@@ -28,19 +28,19 @@
                     <img src="./images/menu-open.svg" loading="lazy"  alt="menu-open">
                 </button>
                 <div class="header-logo">
-                    <a href="#" class="logo">
+                    <a href="./index.html" class="logo">
                         <img src="./images/logo.svg" loading="lazy" alt="logo">
                     </a>
                 </div>
                 <nav>
                     <ul role="presentation">
-                        <li><a class="current-menu-item" href="#">Services</a></li>
-                        <li><a href="#">Onboarding Process</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#onboarding" class="anchor-trigger">Onboarding Process</a></li>
+                        <li><a href="#services" class="anchor-trigger">Services</a></li>
+                        <li><a href="#portfolio" class="anchor-trigger">Portfolio</a></li>
+                        <li><a href="#about" class="anchor-trigger">About Us</a></li>
+                        <li><a href="#contact" class="anchor-trigger">Contact Us</a></li>
+                        <li><a href="#testimonials" class="anchor-trigger">Testimonials</a></li>
+                        <li><a href="#blog" class="anchor-trigger">Blog</a></li>
                     </ul>
                     <button class="btn open-popup">Contact us</button>
                 </nav>
@@ -49,7 +49,7 @@
         </div>
     </header>
     <main>
-        <section class="banner">
+        <section class="anchor-section banner">
             <div class="banner-main">
                 <div class="wrapper">
                     <div class="banner-main-cnt">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="banner-text wow fadeInUp">
+            <div id="onboarding" class="anchor-section banner-text wow fadeInUp">
                 <div class="wrapper">
                     <div class="banner-text-cnt">
                         <h2>Our mission is to ensure the <span>safety and efficiency</span> of your blockchain projects</h2>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </section>
-        <section class="services">
+        <section id="services" class="anchor-section services">
             <div class="wrapper">
                 <div class="heading heading-center">
                     <p class="wow fadeInUp">Services</p>
@@ -82,7 +82,7 @@
                     <p class="wow fadeInUp">Dive into our wide range of services tailored for the blockchain ecosystem. </p>
                 </div>
                 <div class="services-cnt">
-                    <a href="#" class="services-item wow fadeInUp">
+                    <div href="#" class="services-item wow fadeInUp">
                         <span class="services-item-img">
                             <img src="./images/cube.png" loading="lazy" alt="cube">
                         </span>
@@ -90,8 +90,8 @@
                             <span class="services-item-title">Tokenomics Audit</span>
                             <span class="services-item-desc">Our team, experienced in EVM and various chains, ensures that your projects not only meet but exceed the highest standards of safety and functionality.</span>
                         </span>
-                    </a>
-                    <a href="#" class="services-item wow fadeInUp">
+                    </div>
+                    <div href="#" class="services-item wow fadeInUp">
                         <span class="services-item-img">
                             <img src="./images/chart.png" loading="lazy" alt="chart">
                         </span>
@@ -99,11 +99,11 @@
                             <span class="services-item-title">Token Utility Audit</span>
                             <span class="services-item-desc">From detailed pen-testing and vulnerability assessments to full-scale smart contract audits, we are equipped to handle all aspects of blockchain security. </span>
                         </span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="info-block">
+        <section id="portfolio" class="anchor-section info-block">
             <div class="wrapper">
                 <div class="info-block-row">
                     <div class="info-block-cnt heading">
@@ -118,7 +118,7 @@
                 </div>
             </div>
         </section>
-        <section class="info-block">
+        <section id="about" class="anchor-section info-block">
             <div class="wrapper">
                 <div class="info-block-row">
                     <div class="info-block-img wow fadeInUp">
@@ -133,7 +133,7 @@
                 </div>
             </div>
         </section>
-        <section class="touch">
+        <section id="contact" class="anchor-section touch">
             <div class="wrapper">
                 <div class="touch-row wow fadeIn">
                     <div class="heading heading-center">
@@ -145,7 +145,7 @@
                 </div>
             </div>
         </section>
-        <section class="reviews">
+        <section id="testimonials" class="anchor-section reviews">
             <div class="wrapper">
                 <div class="reviews-cnt">
                     <div class="heading">
@@ -236,7 +236,7 @@
                 </div>
             </div>
         </section>
-        <section class="articles">
+        <section id="blog" class="anchor-section articles">
             <div class="wrapper articles-line">
                 <div class="heading heading-center">
                     <p class="wow fadeInUp">Stay Informed with the Latest in Blockchain Security</p>
@@ -310,7 +310,7 @@
         <div class="wrapper">
             <div class="footer-cnt">
                 <div class="footer-column footer-info wow fadeInUp">
-                    <a href="#" class="footer-logo">
+                    <a href="index.html" class="footer-logo">
                         <img src="./images/footer-logo.svg" loading="lazy" alt="footer-logo">
                     </a>
                     <a href="#" class="footer-link">Terms and conditions</a>
