@@ -3,7 +3,7 @@
     padding-bottom: 120px;
 }
 
-.banner-main:not(:last-child) {
+.banner-main {
     margin-bottom: 53px;
 }
 
@@ -101,7 +101,7 @@
         padding-bottom: 60px;
     }
 
-    .banner-main:not(:last-child) {
+    .banner-main {
         margin-bottom: 40px;
     }
 
