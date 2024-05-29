@@ -68,11 +68,12 @@ const common = {
 		});
 
 		const anchors = document.querySelectorAll('.anchor-trigger');
+		let isScrollingByClick = false;
+		let scrollTimeout;
 
 		anchors.forEach(anchor => anchor.addEventListener('click', e => {
 			e.preventDefault();
 			const target = document.querySelector(anchor.hash);
-
 
 			if (target) {
 				const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
@@ -82,30 +83,51 @@ const common = {
 				anchor.classList.add('active');
 				window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 				history.pushState(null, null, anchor.hash);
+
+				isScrollingByClick = true;
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(() => isScrollingByClick = false, 1000);  // adjust timeout as needed
 			}
 		}));
 
-		const isInViewport = element => {
-			const rect = element.getBoundingClientRect();
+		document.addEventListener('scroll', () => {
+			if (isScrollingByClick) return;
 
-			return rect.top < window.innerHeight && rect.bottom > 0;
-		};
+			const sections = document.querySelectorAll('.anchor-section');
+			let maxVisibleArea = 0;
+			let mostVisibleSection = null;
 
-		const updateCurrentSection = () => {
-			let currentSection = null;
+			const calculateVisibleArea = (rect) => {
+				const visibleWidth = Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0);
+				const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
 
-			document.querySelectorAll('.anchor-section').forEach(section => isInViewport(section) ? currentSection = section : null);
+				if (visibleWidth > 0 && visibleHeight > 0)
+					return visibleWidth * visibleHeight;
 
-			if (currentSection) {
-			  document.querySelectorAll('.anchor-trigger').forEach(anchor => anchor.classList.remove('active'));
+				return 0;
+			};
 
-			  const activeLink = document.querySelector(`a[href="#${currentSection.id}"]`);
+			sections.forEach(section => {
+				const rect = section.getBoundingClientRect();
+				const visibleArea = calculateVisibleArea(rect);
 
-			  return activeLink && activeLink.classList.add('active');
+				if (visibleArea > maxVisibleArea) {
+					maxVisibleArea = visibleArea;
+					mostVisibleSection = section;
+				}
+			});
+
+			if (mostVisibleSection) {
+				document.querySelectorAll('.anchor-trigger').forEach(anchor => anchor.classList.remove('active'));
+
+				const activeLink = document.querySelector(`a[href="#${mostVisibleSection.id}"]`);
+
+				if (activeLink) {
+					history.pushState(null, null, activeLink.hash);
+					activeLink.classList.add('active');
+				}
 			}
-		};
-
-		window.addEventListener('scroll', updateCurrentSection);
+		});
 	},
 	splide: () => {
 		const reviewsItemCount = document.querySelectorAll('.reviews-slider .reviews-item').length;
