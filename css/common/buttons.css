@@ -41,8 +41,8 @@
 .btn-icon img,
 .btn-icon svg {
     position: absolute;
-    top: calc(50% - 10px);
-    left: calc(50% - 10px);
+    top: calc(50% - 11px);
+    left: calc(50% - 11px);
     z-index: 1;
     transition: .3s ease;
 }

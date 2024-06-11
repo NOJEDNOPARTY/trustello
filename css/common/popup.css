@@ -1,6 +1,7 @@
 body.popup-opened {
     padding-right: 1px;
     overflow: hidden;
+    height: 100%;
 }
 
 .popup-wrapper {
@@ -166,6 +167,15 @@ body.popup-opened .popup-wrapper {
     .popup-benefits-list > div {
         width: calc((100% / 3) - 6px);
         margin-bottom: 8px;
+    }
+
+    .popup-close {
+        top: 28px;
+        right: 10px;
+    }
+
+    .popup-cnt h2 {
+        padding-right: 30px;
     }
 }
 

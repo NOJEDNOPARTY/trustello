@@ -98,9 +98,7 @@ table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):last-child 
 .table-social {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    min-width: 84px;
-    width: 84px;
+    justify-content: flex-end;
     margin-left: auto;
 }
 
@@ -113,6 +111,10 @@ table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):last-child 
     height: 20px;
     opacity: 0.6;
     transition: var(--default-transition);
+}
+
+.table-social a:not(:last-child) {
+    margin-right: 12px;
 }
 
 .table-social a img {max-width: 100%;}
