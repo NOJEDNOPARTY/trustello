@@ -21,6 +21,7 @@ const common = {
 		menuTrigger.forEach(trigger => trigger.addEventListener('click', e => {
 			e.preventDefault();
 			document.querySelector('.header').classList.toggle('open');
+			document.querySelector('body').classList.toggle('menu-open');
 		}));
 
 		openPopupTrigger.forEach(trigger => trigger.addEventListener('click', e => {

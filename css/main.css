@@ -11,6 +11,12 @@ body {
     background-color: var(--default-bg-color);
 }
 
+body.menu-open {
+    padding-right: 1px;
+    overflow: hidden;
+    height: 100%;
+}
+
 body::-webkit-scrollbar {
     width: 1px;
 }

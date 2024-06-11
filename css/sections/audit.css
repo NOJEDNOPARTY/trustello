@@ -117,7 +117,10 @@ table.audit-table.dataTable.display :is(thead, tbody) tr :is(th, td):last-child 
     margin-right: 12px;
 }
 
-.table-social a img {max-width: 100%;}
+.table-social a img {
+    min-width: 20px;
+    max-width: 20px;
+}
 
 table.audit-table tbody tr td.table-links { color: var(--darkergray); }
 
